@@ -1,0 +1,30 @@
+<div class="row center-block">
+  <div class="form-group">
+    <form e-submit="change_payment" role="form">
+      {{ if params._action.to_s == 'enrollment' }}
+      <input type="tel" class="form-control" placeholder="Search for name or ID number..." value="{{ page._query}}"
+      />
+      {{ else }}
+      <input type="tel" class="form-control" placeholder="ID Number" value="{{ page._query}}"/>
+      {{ end }}
+    </form>
+  </div>
+</div>
+<div class="table-responsive center-block">
+  <table class="table table-hover table-condensed">
+    <tr>
+      <th class="text-center">ID Number</th>
+      <th class="text-center">Payment</th>
+      <th class="text-center">Sized</th>
+      <th></th>
+    </tr>
+    {{ paginated_enrollees.each do |student| }}
+      <:grid model="{{ student }}" />
+    {{ end }}
+  </table>
+</div>
+<div class="row">
+  <div class="text-center">
+    <:pagination class="text-center" total="{{ searched_enrollees.size }}" per_page="{{ per_page }}" />
+  </div>
+</div>

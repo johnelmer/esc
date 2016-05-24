@@ -1,0 +1,31 @@
+<tr>
+  <td>{{ _id_number }}</td>
+  <td>{{ _first_name }}</td>
+  <td>{{ _last_name }}</td>
+  <td>{{ _course}}</td>
+  <td>{{ _year }}</td>
+  <td>{{ _shirt_size }}</td>
+  <td class="text-center">
+    {{ if paid }}
+    <span class="glyphicon glyphicon-ok text-success" aria-hidden="false"></span>
+    {{ else }}
+    <span class="glyphicon glyphicon-remove text-danger" aria-hidden="true"></span>
+    {{ end }}
+  </td>
+  <td class="text-center">
+    {{ if claimed }}
+      <a><span class="glyphicon glyphicon-ok text-success" aria-hidden="false"></span></a>
+    {{ else }}
+      <a><span class="glyphicon glyphicon-remove text-danger" aria-hidden="true"></span></a>
+    {{ end }}
+  </td>
+  <td class="text-center">
+    {{ if enrolled }}
+      <a><span class="glyphicon glyphicon-ok text-success" aria-hidden="false"></span></a>
+    {{ else }}
+      <a><span class="glyphicon glyphicon-remove text-danger" aria-hidden="true"></span></a>
+    {{ end }}
+  </td>
+  <td><a href="/student/edit/{{ _id }}">Edit</a></td>
+  <td> <a e-click="model.destroy"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+</tr>

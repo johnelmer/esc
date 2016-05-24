@@ -1,0 +1,18 @@
+<tr>
+  <td class="text-center">{{ _id_number }}</td>
+  <td class="text-center">
+    {{ if paid }}
+    <span class="glyphicon glyphicon-ok text-success" aria-hidden="false"></span>
+    {{ else }}
+    <span class="glyphicon glyphicon-remove text-danger" aria-hidden="true"></span>
+    {{ end }}
+  </td>
+  <td class="text-center">
+    {{ if sized }}
+      <span class="glyphicon glyphicon-ok text-success" aria-hidden="false"></span>
+    {{ else }}
+    <span class="glyphicon glyphicon-remove text-danger" aria-hidden="true"></span>
+    {{ end }}
+  </td>
+  <td><a e-click="model.destroy"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+</tr>

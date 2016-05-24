@@ -1,0 +1,9 @@
+{{ if params._action.to_s == 'enrollment'}}
+  <form e-submit="enroll">
+    <:fields:text value="{{ page._id_number }}" label="ID Number" placeholder="ID Number" />
+  </form>
+{{ else }}
+  <form e-submit="change_payment">
+    <:fields:text value="{{ id_number }}" label="ID Number" placeholder="ID Number" />
+  </form>
+{{ end }}

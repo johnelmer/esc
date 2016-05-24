@@ -1,0 +1,21 @@
+<:Title>
+Enrollment registration
+
+<:Body>
+<div class="container">
+  <div class="panel panel-success">
+    <div class="panel-body">
+      {{ if loaded? }}
+        <:form model="{{ model }}" />
+      {{ end }}
+    </div>
+  </div>
+  <div class="panel panel-success">
+    <div class="panel-body">
+      {{ if loaded? }}
+      <:list />
+      {{ end }}
+    </div>
+  </div>
+</div>
+<:volt:notices/>

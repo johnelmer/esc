@@ -1,0 +1,63 @@
+<:Title>
+  {{ view main_path, "title", {controller_group: 'main'} }}
+
+<:Body>
+  <div class="container-fluid">
+    <div class="header">
+      <div class="jumbotron">
+        {{ if Volt.current_user? }}
+        <h2>CPU Engineering Student Council</h2>
+        {{ else }}
+        <a href="/login"><h2>CPU ESC</h2></a>
+        {{ end }}
+        <p>Data and Information Center</p>
+      </div>
+    </div>
+    {{ if Volt.current_user? }}
+    <div class="header">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">CPU ESC</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/events">Events</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Student Portal <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/all">Students</a></li>
+                <li><a href="/registration">Registration</a></li>
+                <li><a href="/enrollment">Enrollment Registration</a></li>
+                <li><a href="/payment">Payment Registration</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statistics <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/statistics">Sizes Count</a></li>
+                <li><a href="/unsized">No Sizes</a></li>
+                <li><a href="/unpaid">No Payments</a></li>
+              </ul>
+            </li>
+            <li><a href="/about">About</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" e-click="Volt.logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    {{ end }}
+    {{ view main_path, 'body', {controller_group: 'main'} }}
+    <div class="footer">
+      <p>&copy; Engineering Student Council</p>
+    </div>
+
+  </div>
+
+  <:volt:notices/>
+<:Nav>
+  <li class="{{ if active_tab? }}active{{ end }}">
+    <a href="{{ attrs.href }}">{{ yield }}</a>
+  </li>

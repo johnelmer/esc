@@ -1,0 +1,38 @@
+<:Title>
+All Registered Students
+
+<:Body>
+<div class="container-fluid">
+  <div class="row center-block">
+        <div class="form-group">
+          <input type="tel" class="form-control" e-focus="validate" placeholder="Search for name or ID number..." value="{{ page._query}}"
+          />
+        </div>
+  </div>
+  <div class="table-responsive center-block">
+    <table class="table table-hover table-condensed">
+      <tr>
+        <th>ID Number</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Course</th>
+        <th>Year</th>
+        <th>Shirt Size</th>
+        <th class="text-center">Paid</th>
+        <th class="text-center">Claimed</th>
+        <th class="text-center">Enrolled</th>
+        <th></th>
+        <th></th>
+      </tr>
+      {{ paginated_students.each do |student| }}
+      <:student:list model="{{ student }}"/>
+      {{ end }}
+    </table>
+  </div>
+  <div class="row">
+    <div class="text-center">
+      <:pagination class="text-center" total="{{ searched_students.size }}" per_page="{{ per_page }}" />
+    </div>
+  </div>
+</div>
+<:volt:notices/>

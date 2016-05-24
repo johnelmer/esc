@@ -1,0 +1,35 @@
+<form role="form" e-submit="save">
+  <:fields:text value="{{ id_number }}" label="ID Number" placeholder="ID Number"/>
+  <div class="row">
+    <div class="col-md-6">
+      <:fields:text value="{{ first_name }}" placeholder="First Name" />
+    </div>
+    <div class="col-md-6">
+      <:fields:text value="{{ last_name }}" placeholder="Last Name"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+        <:fields:select value="{{ course }}" options="{{['BSCE', 'BSChE', 'BSECE', 'BSEE', 'BSME','BSPkgE', 'BSSE']}}"/>
+    </div>
+    <div class="col-md-6">
+      <:fields:select value="{{ year }}" options="{{['1', '2', '3', '4', '5']}}"/>
+    </div>
+  </div>
+  <:fields:text value="{{ contact_number }}" placeholder="Contact Number"/>
+  <:fields:select value="{{ shirt_size }}" options="{{['TS', 'TM', 'TL', 'TXL', 'XS','S', 'M', 'L', 'XL', 'Others']}}"/>
+  <div class="wrapper">
+    <div class="form-group">
+      <label for="payment_info">Payment Information</label>
+      <:fields:radio:inline value="{{ paid }}" id="payment_info" options="{{[{label: 'Paid', value: true}, {label:'Not Paid', value: false, checked: 'checked'}]}}"/>
+    </div>
+  </div>
+  <div class="form-group">
+      <button class="btn btn-success btn-block">
+        {{ if params._action.to_s == 'register'}}
+        Register
+        {{ else }}
+        Save
+        {{ end }}</button>
+  </div>
+</form>
